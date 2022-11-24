@@ -36,6 +36,7 @@ E.bindSortColumn("tr>th");
 
 E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle", "#search-in-users-input", "#filter-in-users")
 E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle_course", "#search-in-courses-input", "#filter-in-courses")
+E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle_group", "#search-in-students-input", "#filter-in-users_group")
 
 // cosas que exponemos para poder usarlas desde la consola
 window.Cm = Cm;

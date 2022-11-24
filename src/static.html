@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -67,13 +67,16 @@
 
                 <div id="filter-in-users" class="m-2 row p-2 border border-2 rounded">
                     <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" name="" placeholder="Nombre o fragmento">
-                    <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" placeholder="DNI o fragmento" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra">
-                    <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" placeholder="correo o fragmento" pattern="[a-z0-9._%+-]+@ucm.es" title="Debe poner formato useremail@ucm.es">
+                    <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" placeholder="DNI o fragmento">
+                    <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" placeholder="correo o fragmento">
                     <select name="rol" class="col-md-6 m-1 form-select form-select-sm">
                         <option value="admin">admin</option>
                         <option value="alumno" selected>alumno</option>
                         <option value="profesor">profesor</option>
-                    </select>     
+                    </select> 
+                    <div class="m-1">
+                        <button class=" btn btn-primary" id="limpiar_filtro_users">Limpiar filtros</button>
+                    </div>    
                 </div>
 
 
@@ -1128,6 +1131,9 @@
                         <option value="5"></option>
                         </datalist>
                     </div>
+                    <div class="m-1">
+                        <button class=" btn btn-primary" id="limpiar_filtro_courses">Limpiar filtros</button>
+                    </div>
                 </div>
 
                 <table class="table">
@@ -1497,11 +1503,41 @@
                         <input id="search-in-students-input" type="search" class="form-control" placeholder="Filtrar">
                         <span class="input-group-text">🔍</span>
                     </div>
+                    <div class="col">
+                        <button id="search-advanced-toggle_group" title="Búsqueda avanzada" class="add-user btn btn-outline-secondary"><i class="bi bi-funnel-fill"></i></button>
+                    </div>
                     <div class="col text-end">
                         <button title="Matricula un alumno para Análisis con Python (2021-22)" data-id="121"
                             class="add-alumno-to-edition btn btn-outline-primary">➕</button>
                     </div>
                 </div>
+
+                <div id="filter-in-users_group" class="m-2 row p-2 border border-2 rounded">
+                    <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" name="" placeholder="Nombre o fragmento">
+                    <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" placeholder="DNI o fragmento">
+                    <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" placeholder="correo o fragmento">
+                    <div>
+                        <label for="note">Nota:</label>
+                        <input type="range" id="note" name="note" list="mynote" min="0" max="10" step="0.5" style="width:300px"/>
+                        <datalist id="mynote">
+                            <option value="0"></option>
+                            <option value="1"></option>
+                            <option value="2"></option>
+                            <option value="3"></option>
+                            <option value="4"></option>
+                            <option value="5"></option>
+                            <option value="6"></option>
+                            <option value="7"></option>
+                            <option value="8"></option>
+                            <option value="9"></option>
+                            <option value="10"></option>
+                        </datalist>
+                    </div>
+                    <div class="m-1">
+                        <button class=" btn btn-primary" id="limpiar_filtro_users">Limpiar filtros</button>
+                    </div>    
+                </div>
+
                 <table class="table w-100 ml-4">
                     <tbody>
                         <tr>
