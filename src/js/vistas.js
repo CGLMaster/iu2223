@@ -20,9 +20,9 @@ import * as Cm from './cmapi.js'
  */
 
 const roleClasses = {
-    [Cm.UserRole.TEACHER]: "badge text-bg-primary opacity-50",
-    [Cm.UserRole.STUDENT]: "badge text-bg-success opacity-50",
-    [Cm.UserRole.ADMIN]: "badge text-bg-warning opacity-50"
+    [Cm.UserRole.TEACHER]: "badge text-bg-primary ",
+    [Cm.UserRole.STUDENT]: "badge text-bg-success ",
+    [Cm.UserRole.ADMIN]: "badge text-bg-warning "
 }
 
 const areaClasses = {
@@ -51,11 +51,11 @@ function userRow(user, editions) {
         <td>
         <div class="btn-group">
             <button id="d${user.id}" title="Muestra las ediciones en las que figura ${user.name}" 
-                class="edition-link btn btn-outline-secondary btn-sm">👁️</button>        
+                class="edition-link btn btn-sm bg-secondary ">👁️</button>        
             <button title="Edita el usuario ${user.name}" 
-                class="set-user btn btn-outline-primary btn-sm">✏️</button>
+                class="set-user btn btn-sm bg-primary">✏️</button>
             <button title="Elimina a ${user.name} del sistema, y de todas las ediciones" 
-                class="rm-fila btn btn-outline-danger btn-sm">🗑️</button>
+                class="rm-fila btn btn-sm bg-danger">🗑️</button>
         </div>
         </td>
     </tr>
@@ -68,18 +68,18 @@ export function createUserTable(users) {
 
     const botonNuevoUsuario = `
         <button title="Crea un nuevo usuario" 
-            class="add-user btn btn-outline-primary">➕</button>`
+            class="add-user btn bg-success">➕</button>`
 
     return `
-    <h4 class="mt-3">Usuarios</h4>
-
+    <h4 class="mt-3 text-center">Usuarios</h4>
+    <hr>
     <div class="row">
         <div class="col md-auto input-group">
             <input id="search-in-users-input" type="search" class="form-control" placeholder="Filtrar" />
-            <span class="input-group-text" id="search-in-users-button">🔍</span>
+            <span class="input-group-text bg-dark opacity-75" id="search-in-users-button">🔍</span>
         </div>
         <div class="col">
-            <button id="search-advanced-toggle" title="Búsqueda avanzada" class="btn btn-outline-secondary"><i class="bi bi-funnel-fill"></i></button>
+            <button id="search-advanced-toggle" title="Búsqueda avanzada" class="btn btn-outline-primary "><i class="bi bi-funnel-fill"></i></button>
         </div>
         <div class="col text-end">${botonNuevoUsuario}</div>
     </div>
@@ -98,6 +98,35 @@ export function createUserTable(users) {
             <button type="reset" class=" btn btn-primary" id="limpiarUser" onclick="limpiarUsers()">Limpiar filtros</button>
         </div>    
     </form>
+
+    <script>
+        function advancedUserFilter(filterSel, rowSel) {
+            const filterDiv = document.querySelector(filterSel);
+            const name = filterDiv.querySelector("input[name=name]").value.toLowerCase();
+            const dni = filterDiv.querySelector("input[name=dni]").value.toLowerCase();
+            const email = filterDiv.querySelector("input[name=email]").value.toLowerCase();
+            const role = filterDiv.querySelector("select[name=role]").value.toLowerCase();
+            
+            const valueAt = (row, i) => row.children[i].innerText || row.children[i].textContent;
+            
+            for (let r of document.querySelectorAll(rowSel)) {
+                let ok = true;
+                for (let [f, col] of 
+                    [[name, 0], [role, 1], [email, 2], [dni, 3]]) {
+                        if (f == '' || ! ok) continue;
+                        const v = valueAt(r, col).toLowerCase();
+                        console.log(v, f, col, v.indexOf(f));
+                        if (v.indexOf(f) == -1) ok = false;
+                }
+                r.style.display = ok ? '' : 'none';
+            }
+        }
+        document.querySelectorAll("#filter-in-users input, #filter-in-users select").forEach(o =>
+            o.addEventListener('input', e => {
+                console.log("filtrando");
+                advancedUserFilter("#filter-in-users", ".user-table-row");
+        }));
+    </script>
 
     <table class="table">
     <tr>
@@ -143,7 +172,7 @@ function courseRow(course, editions, results) {
     return `
     <tr data-id="${course.id}" class="course-table-row">
         <td>${course.name}</td>
-        <td><span class="${areaClasses[course.area]}">${course.area}</span></td>
+        <td><span class="  ${areaClasses[course.area]}">${course.area}</span></td>
         <td><span class="${levelClasses[course.level]}">${course.level}</span></td>
         <td>${ratings.join(' ')} 
             <button data-year="${year}" title="Crea una edición ${year} para el curso ${course.name}" 
@@ -171,8 +200,8 @@ export function createCoursesTable(courses) {
             class="add-course btn btn-outline-primary">➕</button>`
 
     return `
-    <h4 class="mt-3">Cursos</h4>
-
+    <h4 class="mt-3 text-center">Cursos</h4>
+    <hr>
     <div class="row">
         <div class="col md-auto input-group">
             <input id="search-in-courses-input" type="search" class="form-control" placeholder="Filtrar" />
@@ -347,30 +376,30 @@ export function createDetailsForEdition(edition) {
     </div>
 
     <form id="filter-in-users-group" class="m-2 row p-2 border border-2 rounded">
-        <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameStudent" placeholder="Nombre o fragmento">
-        <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" id="dniStudent" placeholder="DNI o fragmento">
-        <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" id="emailStudent" placeholder="correo o fragmento">
-        <div>
-            <label for="note">Nota:</label>
-            <input type="range" value="" id="note" name="note" list="mynote" min="0" max="10" step="1" style="width:300px"/>
-            <datalist id="mynote">
-                <option value="0"></option>
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
-                <option value="5"></option>
-                <option value="6"></option>
-                <option value="7"></option>
-                <option value="8"></option>
-                <option value="9"></option>
-                <option value="10"></option>
-            </datalist>
-        </div>
-        <div class="m-1">
-            <button class=" btn btn-primary" id="limpiar_filtro_students" onclick="limpiarStudents()">Limpiar filtros</button>
-        </div>    
-    </form>
+            <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameStudent" placeholder="Nombre o fragmento">
+            <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" id="dniStudent" placeholder="DNI o fragmento">
+            <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" id="emailStudent" placeholder="correo o fragmento">
+            <div>
+                <label for="note">Nota:</label>
+                <input type="range" value="" id="note" name="note" list="mynote" min="0" max="10" step="1" style="width:300px"/>
+                <datalist id="mynote">
+                    <option value="0"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                    <option value="6"></option>
+                    <option value="7"></option>
+                    <option value="8"></option>
+                    <option value="9"></option>
+                    <option value="10"></option>
+                </datalist>
+            </div>
+            <div class="m-1">
+                <button class=" btn btn-primary" id="limpiar_filtro_students" onclick="limpiarStudents()">Limpiar filtros</button>
+            </div>    
+        </form>
 
     <table class="table w-100 ml-4">
     <tr>
