@@ -1,0 +1,23 @@
+body {
+    background-color: none;
+}
+
+.perfilOpt {
+    color: steelblue;
+}
+
+.perfilOpt:hover {
+    color: lightskyblue;
+}
+
+.dropdown-menu {
+    border: 0;
+}
+.liAdmin, .liprof, .liAlum {
+    color:lightskyblue;
+}
+
+.liAdmin:hover, .liprof:hover, .liAlum:hover {
+    color:black;
+    background-color: PaleTurquoise;
+}
