@@ -65,32 +65,20 @@
                     </div>
                 </div>
 
-                <div id="filter-in-users" class="m-2 row p-2 border border-2 rounded">
-                    <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" name="" placeholder="Nombre o fragmento">
-                    <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" placeholder="DNI o fragmento">
-                    <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" placeholder="correo o fragmento">
-                    <select name="role" class="col-md-6 m-1 form-select form-select-sm">
+                <form id="filter-in-users" class="m-2 row p-2 border border-2 rounded">
+                    <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameUser" placeholder="Nombre o fragmento">
+                    <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" id="dni" placeholder="DNI o fragmento">
+                    <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" id="email" placeholder="correo o fragmento">
+                    <select name="role" id="role" class="col-md-6 m-1 form-select form-select-sm">
+                        <option value="" selected>Ninguna role seleccionado</option>
                         <option value="admin">admin</option>
-                        <option value="alumno" selected>alumno</option>
+                        <option value="alumno">alumno</option>
                         <option value="profesor">profesor</option>
                     </select> 
                     <div class="m-1">
-                        <button class=" btn btn-primary" id="limpiar_filtro_users">Limpiar filtros</button>
+                        <button type="reset" class=" btn btn-primary" id="limpiarUser" onclick="limpiarUsers()">Limpiar filtros</button>
                     </div>    
-                </div>
-
-
-                <!-- <form id="filter-in-users" class="m-2 row p-2 border border-2 rounded">
-                    <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" name="" placeholder="Nombre o fragmento">
-                    <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" placeholder="DNI o fragmento" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra">
-                    <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" placeholder="correo o fragmento" pattern="[a-z0-9._%+-]+@ucm.es" title="Debe poner formato useremail@ucm.es">
-                    <select name="rol" class="col-md-6 m-1 form-select form-select-sm">
-                        <option value="admin">admin</option>
-                        <option value="alumno" selected>alumno</option>
-                        <option value="profesor">profesor</option>
-                    </select>     
-                    <button type="submit" class="btn btn-primary"></button>       
-                </form> -->
+                </form>
 
                 <table class="table">
                     <tbody>
@@ -1106,21 +1094,21 @@
                     </div>
                 </div>
 
-                <div id="filter-in-courses" class="m-2 row p-2 border border-2 rounded">
-                    <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" name="" placeholder="Nombre o fragmento">
-                    <select name="area" class="col-md-6 m-1 form-select form-select-sm">
+                <form id="filter-in-courses" class="m-2 row p-2 border border-2 rounded">
+                    <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameCourse" placeholder="Nombre o fragmento">
+                    <select name="area" id="area" class="col-md-6 m-1 form-select form-select-sm">
                         <option value="" selected>Ninguna area seleccionada</option>
                         <option value="ofimática">ofimática</option>
                         <option value="internet" >internet</option>
                         <option value="tec. informáticas">tec. informáticas</option>
                     </select>
-                    <select name="nivel" class="col-md-6 m-1 form-select form-select-sm">
+                    <select name="nivel" id="nivel" class="col-md-6 m-1 form-select form-select-sm">
                         <option value="" selected>Ningun nivel seleccionado</option>
                         <option value="iniciación">iniciación</option>
                         <option value="especialización" >especialización</option>
                         <option value="generalista">generalistas</option>
                     </select> 
-                    <select name="anio" class="col-md-6 m-1 form-control form-control-sm" placeholder="Año de Edición" max="2022" min="1991">
+                    <select name="anio" id="anio" class="col-md-6 m-1 form-control form-control-sm" placeholder="Año de Edición" max="2022" min="1991">
                         <option value="" selected>Ningun año seleccionado</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
@@ -1155,7 +1143,7 @@
                         <option value="1992">1992</option>
                         <option value="1991">1991</option>
                     </select>
-                    <!-- <div>
+                    <div>
                         <input type="range" id="valoration" name="valoration" list="mydata" min="0" max="5" step="0.5"/>
                         <label for="temp">Valoración ⭐</label>
                         <datalist id="mydata">
@@ -1166,11 +1154,11 @@
                         <option value="4"></option>
                         <option value="5"></option>
                         </datalist>
-                    </div> -->
-                    <div class="m-1">
-                        <button class=" btn btn-primary" id="limpiar_filtro_courses">Limpiar filtros</button>
                     </div>
-                </div>
+                    <div class="m-1">
+                        <button class="btn btn-primary" id="limpiar_filtro_courses" onclick="limpiarCourses()">Limpiar filtros</button>
+                    </div>
+                </form>
 
                 <table class="table">
                     <tbody>
@@ -1548,13 +1536,13 @@
                     </div>
                 </div>
 
-                <div id="filter-in-users_group" class="m-2 row p-2 border border-2 rounded">
-                    <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" name="" placeholder="Nombre o fragmento">
-                    <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" placeholder="DNI o fragmento">
-                    <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" placeholder="correo o fragmento">
+                <div id="filter-in-users-group" class="m-2 row p-2 border border-2 rounded">
+                    <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameStudent" placeholder="Nombre o fragmento">
+                    <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" id="dniStudent" placeholder="DNI o fragmento">
+                    <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" id="emailStudent" placeholder="correo o fragmento">
                     <div>
                         <label for="note">Nota:</label>
-                        <input type="range" id="note" name="note" list="mynote" min="0" max="10" step="0.5" style="width:300px"/>
+                        <input type="range" value="" id="note" name="note" list="mynote" min="0" max="10" step="1" style="width:300px"/>
                         <datalist id="mynote">
                             <option value="0"></option>
                             <option value="1"></option>
@@ -1570,7 +1558,7 @@
                         </datalist>
                     </div>
                     <div class="m-1">
-                        <button class=" btn btn-primary" id="limpiar_filtro_users">Limpiar filtros</button>
+                        <button class=" btn btn-primary" id="limpiar_filtro_students" onclick="limpiarStudents()">Limpiar filtros</button>
                     </div>    
                 </div>
 
@@ -1917,14 +1905,14 @@
         const name = filterDiv.querySelector("input[name=name]").value.toLowerCase();
         const dni = filterDiv.querySelector("input[name=dni]").value.toLowerCase();
         const correo = filterDiv.querySelector("input[name=email]").value.toLowerCase();
-        //const nota = filterDiv.querySelector("input[name=note]").value.toLowerCase();
+        const nota = filterDiv.querySelector("input[name=note]").value.toLowerCase();
         
         const valueAt = (row, i) => row.children[i].innerText || row.children[i].textContent;
         
         for (let r of document.querySelectorAll(rowSel)) {
             let ok = true;
             for (let [f, col] of 
-                [[name, 0], [dni, 1], [correo, 2]]) {
+                [[name, 0], [correo, 1], [dni, 2], [nota, 3]]) {
                     if (f == '' || ! ok) continue;
                     const v = valueAt(r, col).toLowerCase();
                     console.log(v, f, col, v.indexOf(f));
@@ -1933,11 +1921,42 @@
             r.style.display = ok ? '' : 'none';
         }
     }
-    document.querySelectorAll("#filter-in-users_group input, #filter-in-users_group select").forEach(o =>
+    document.querySelectorAll("#filter-in-users-group input, #filter-in-users_group select").forEach(o =>
         o.addEventListener('input', e => {
             console.log("filtrando");
-            advancedStudentFilter("#filter-in-users_group", ".users-table-row");
+            advancedStudentFilter("#filter-in-users-group", ".student-table-row");
     }));
+</script>
+
+<script>
+
+    function limpiarUsers(){
+        document.getElementById("nameUser").value = "";
+        document.getElementById("dni").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("role").value = "";
+        console.log("filtrando");
+        advancedUserFilter("#filter-in-users", ".user-table-row");
+    }
+
+    function limpiarCourses(){
+        document.getElementById("nameCourse").value = "";
+        document.getElementById("area").value = "";
+        document.getElementById("nivel").value = "";
+        document.getElementById("anio").value = "";
+        console.log("filtrando");
+        advancedCourseFilter("#filter-in-courses", ".course-table-row");
+    }
+
+    function limpiarStudents(){
+        document.getElementById("nameStudent").value = "";
+        document.getElementById("dniStudent").value = "";
+        document.getElementById("emailStudent").value = "";
+        document.getElementById("note").value = "";
+        console.log("filtrando");
+        advancedStudentFilter("#filter-in-users-group", ".student-table-row");
+    }
+
 </script>
 
 </body>
