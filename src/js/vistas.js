@@ -78,8 +78,26 @@ export function createUserTable(users) {
             <input id="search-in-users-input" type="search" class="form-control" placeholder="Filtrar" />
             <span class="input-group-text" id="search-in-users-button">🔍</span>
         </div>
+        <div class="col">
+            <button id="search-advanced-toggle" title="Búsqueda avanzada" class="btn btn-outline-secondary"><i class="bi bi-funnel-fill"></i></button>
+        </div>
         <div class="col text-end">${botonNuevoUsuario}</div>
     </div>
+
+    <form id="filter-in-users" class="m-2 row p-2 border border-2 rounded">
+        <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameUser" placeholder="Nombre o fragmento">
+        <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" id="dni" placeholder="DNI o fragmento">
+        <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" id="email" placeholder="correo o fragmento">
+        <select name="role" id="role" class="col-md-6 m-1 form-select form-select-sm">
+            <option value="" selected>Ninguna role seleccionado</option>
+            <option value="admin">admin</option>
+            <option value="alumno">alumno</option>
+            <option value="profesor">profesor</option>
+        </select> 
+        <div class="m-1">
+            <button type="reset" class=" btn btn-primary" id="limpiarUser" onclick="limpiarUsers()">Limpiar filtros</button>
+        </div>    
+    </form>
 
     <table class="table">
     <tr>
@@ -160,8 +178,77 @@ export function createCoursesTable(courses) {
             <input id="search-in-courses-input" type="search" class="form-control" placeholder="Filtrar" />
             <span class="input-group-text" id="search-in-users-button">🔍</span>
         </div>
+        <div class="col">
+            <button id="search-advanced-toggle_course" title="Búsqueda avanzada" class="btn btn-outline-secondary"><i class="bi bi-funnel-fill"></i></button>
+        </div>
         <div class="col text-end">${botonNuevoCurso}</div>
     </div>
+
+    <form id="filter-in-courses" class="m-2 row p-2 border border-2 rounded">
+        <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameCourse" placeholder="Nombre o fragmento">
+        <select name="area" id="area" class="col-md-6 m-1 form-select form-select-sm">
+            <option value="" selected>Ninguna area seleccionada</option>
+            <option value="ofimática">ofimática</option>
+            <option value="internet" >internet</option>
+            <option value="tec. informáticas">tec. informáticas</option>
+        </select>
+        <select name="nivel" id="nivel" class="col-md-6 m-1 form-select form-select-sm">
+            <option value="" selected>Ningun nivel seleccionado</option>
+            <option value="iniciación">iniciación</option>
+            <option value="especialización" >especialización</option>
+            <option value="generalista">generalistas</option>
+        </select> 
+        <select name="anio" id="anio" class="col-md-6 m-1 form-control form-control-sm" placeholder="Año de Edición" max="2022" min="1991">
+            <option value="" selected>Ningun año seleccionado</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+            <option value="2007">2007</option>
+            <option value="2006">2006</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="2003">2003</option>
+            <option value="2002">2002</option>
+            <option value="2001">2001</option>
+            <option value="2000">2000</option>
+            <option value="1999">1999</option>
+            <option value="1998">1998</option>
+            <option value="1997">1997</option>
+            <option value="1996">1996</option>
+            <option value="1995">1995</option>
+            <option value="1994">1994</option>
+            <option value="1993">1993</option>
+            <option value="1992">1992</option>
+            <option value="1991">1991</option>
+        </select>
+        <div>
+            <input type="range" id="valoration" name="valoration" list="mydata" min="0" max="5" step="0.5"/>
+            <label for="temp">Valoración ⭐</label>
+            <datalist id="mydata">
+            <option value="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+            </datalist>
+        </div>
+        <div class="m-1">
+            <button class="btn btn-primary" id="limpiar_filtro_courses" onclick="limpiarCourses()">Limpiar filtros</button>
+        </div>
+    </form>
 
     <table class="table">
     <tr>
@@ -253,8 +340,38 @@ export function createDetailsForEdition(edition) {
             <input id="search-in-students-input" type="search" class="form-control" placeholder="Filtrar" />
             <span class="input-group-text">🔍</span>
         </div>
+        <div class="col">
+            <button id="search-advanced-toggle_group" title="Búsqueda avanzada" class="btn btn-outline-secondary"><i class="bi bi-funnel-fill"></i></button>
+        </div>
         <div class="col text-end">${botonMatricula("alumno")}</div>
     </div>
+
+    <form id="filter-in-users-group" class="m-2 row p-2 border border-2 rounded">
+        <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameStudent" placeholder="Nombre o fragmento">
+        <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" id="dniStudent" placeholder="DNI o fragmento">
+        <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" id="emailStudent" placeholder="correo o fragmento">
+        <div>
+            <label for="note">Nota:</label>
+            <input type="range" value="" id="note" name="note" list="mynote" min="0" max="10" step="1" style="width:300px"/>
+            <datalist id="mynote">
+                <option value="0"></option>
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+                <option value="7"></option>
+                <option value="8"></option>
+                <option value="9"></option>
+                <option value="10"></option>
+            </datalist>
+        </div>
+        <div class="m-1">
+            <button class=" btn btn-primary" id="limpiar_filtro_students" onclick="limpiarStudents()">Limpiar filtros</button>
+        </div>    
+    </form>
+
     <table class="table w-100 ml-4">
     <tr>
         <th>Nombre</th>

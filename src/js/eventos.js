@@ -303,3 +303,4 @@ export function alternaBusquedaAvanzadaUsuarios(selBoton, selNormal, selAvanzada
         });
     avanzado.style.display = 'none';
 }
+
