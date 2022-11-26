@@ -3121,6 +3121,44 @@ fieldset:disabled .btn {
     opacity: var(--bs-btn-disabled-opacity);
 }
 
+.parteDrch {
+    background-color: azure;
+    color: black;
+}
+
+.edition-link {
+    background-color: gray;
+    color: black;
+}
+
+.edition-link:hover {
+    background-color: darkgray;
+}
+
+.set-user, .set-course, .set-result {
+    background-color: peru;
+}
+
+.set-user:hover, .set-course:hover, .set-result:hover {
+    background-color: BurlyWood;
+}
+
+.rm-fila, .rm-from-edition, .rm-edition {
+    background-color: crimson;
+}
+
+.rm-fila:hover, .rm-from-edition:hover, .rm-edition:hover {
+    background-color: lightcoral;
+}
+
+.add-user, .add-edition, .add-course {
+    background-color: Green;
+}
+
+.add-user:hover, .add-edition:hover, .add-course:hover {
+    background-color: MediumSeaGreen;
+}
+
 .btn-primary {
     --bs-btn-color: #fff;
     --bs-btn-bg: #0d6efd;
