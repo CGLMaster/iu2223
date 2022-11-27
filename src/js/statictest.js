@@ -35,7 +35,7 @@ E.bindSearch("#search-in-user-editions-input", ".user-edition-table-row");
 E.bindSortColumn("tr>th");
 
 E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle", "#search-in-users-input", "#filter-in-users");
-E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle_course", "#search-in-courses-input", "#filter-in-courses");
+E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle-course", "#search-in-courses-input", "#filter-in-courses");
 E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle_group", "#search-in-students-input", "#filter-in-users-group");
 
 

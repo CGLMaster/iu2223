@@ -99,35 +99,6 @@ export function createUserTable(users) {
         </div>    
     </form>
 
-    <script>
-        function advancedUserFilter(filterSel, rowSel) {
-            const filterDiv = document.querySelector(filterSel);
-            const name = filterDiv.querySelector("input[name=name]").value.toLowerCase();
-            const dni = filterDiv.querySelector("input[name=dni]").value.toLowerCase();
-            const email = filterDiv.querySelector("input[name=email]").value.toLowerCase();
-            const role = filterDiv.querySelector("select[name=role]").value.toLowerCase();
-            
-            const valueAt = (row, i) => row.children[i].innerText || row.children[i].textContent;
-            
-            for (let r of document.querySelectorAll(rowSel)) {
-                let ok = true;
-                for (let [f, col] of 
-                    [[name, 0], [role, 1], [email, 2], [dni, 3]]) {
-                        if (f == '' || ! ok) continue;
-                        const v = valueAt(r, col).toLowerCase();
-                        console.log(v, f, col, v.indexOf(f));
-                        if (v.indexOf(f) == -1) ok = false;
-                }
-                r.style.display = ok ? '' : 'none';
-            }
-        }
-        document.querySelectorAll("#filter-in-users input, #filter-in-users select").forEach(o =>
-            o.addEventListener('input', e => {
-                console.log("filtrando");
-                advancedUserFilter("#filter-in-users", ".user-table-row");
-        }));
-    </script>
-
     <table class="table">
     <tr>
         <th>Nombre</th>
@@ -208,7 +179,7 @@ export function createCoursesTable(courses) {
             <span class="input-group-text bg-dark opacity-75" id="search-in-users-button">🔍</span>
         </div>
         <div class="col">
-            <button id="search-advanced-toggle_course" title="Búsqueda avanzada" class="btn text-bg-primary"><i class="bi bi-funnel-fill"></i></button>
+            <button id="search-advanced-toggle-course" title="Búsqueda avanzada" class="btn text-bg-primary"><i class="bi bi-funnel-fill"></i></button>
         </div>
         <div class="col text-end">${botonNuevoCurso}</div>
     </div>
@@ -370,7 +341,7 @@ export function createDetailsForEdition(edition) {
             <span class="input-group-text bg-dark opacity-75">🔍</span>
         </div>
         <div class="col">
-            <button id="search-advanced-toggle_group" title="Búsqueda avanzada" class="btn text-bg-primary"><i class="bi bi-funnel-fill"></i></button>
+            <button id="search-advanced-toggle-group" title="Búsqueda avanzada" class="btn text-bg-primary"><i class="bi bi-funnel-fill"></i></button>
         </div>
         <div class="col text-end">${botonMatricula("alumno")}</div>
     </div>
@@ -379,7 +350,21 @@ export function createDetailsForEdition(edition) {
             <input type="search" name="name" class="col-md-8 m-1  form-control form-control-sm" id="nameStudent" placeholder="Nombre o fragmento">
             <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" id="dniStudent" placeholder="DNI o fragmento">
             <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" id="emailStudent" placeholder="correo o fragmento">
-            <div>
+            <select name="note" id="note" class="col-md-6 m-1 form-select form-select-sm">
+                <option value="" selected>Ninguna nota seleccionada</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select> 
+            <!-- <div>
                 <label for="note">Nota:</label>
                 <input type="range" value="" id="note" name="note" list="mynote" min="0" max="10" step="1" style="width:300px"/>
                 <datalist id="mynote">
@@ -395,7 +380,7 @@ export function createDetailsForEdition(edition) {
                     <option value="9"></option>
                     <option value="10"></option>
                 </datalist>
-            </div>
+            </div> -->
             <div class="m-1">
                 <button class=" btn btn-primary" id="limpiar_filtro_students" onclick="limpiarStudents()">Limpiar filtros</button>
             </div>    

@@ -354,7 +354,7 @@ export function advancedStudentFilter(filterSel, rowSel) {
     const name = filterDiv.querySelector("input[name=name]").value.toLowerCase();
     const dni = filterDiv.querySelector("input[name=dni]").value.toLowerCase();
     const correo = filterDiv.querySelector("input[name=email]").value.toLowerCase();
-    const nota = filterDiv.querySelector("input[name=note]").value.toLowerCase();
+    const nota = filterDiv.querySelector("select[name=note]").value.toLowerCase();
     
     const valueAt = (row, i) => row.children[i].innerText || row.children[i].textContent;
     

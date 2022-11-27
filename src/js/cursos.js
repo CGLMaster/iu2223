@@ -99,15 +99,15 @@ function update() {
                 console.log("filtrando");
                 E.advancedCourseFilter("#filter-in-courses", ".course-table-row");
         }));
-        document.querySelectorAll("#filter-in-users-group input, #filter-in-users_group select").forEach(o =>
+        document.querySelectorAll("#filter-in-users-group input, #filter-in-users-group select").forEach(o =>
             o.addEventListener('input', e => {
                 console.log("filtrando");
                 E.advancedStudentFilter("#filter-in-users-group", ".student-table-row");
         }));
 
         E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle", "#search-in-users-input", "#filter-in-users");
-        E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle_course", "#search-in-courses-input", "#filter-in-courses");
-        E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle_group", "#search-in-students-input", "#filter-in-users-group");
+        E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle-course", "#search-in-courses-input", "#filter-in-courses");
+        E.alternaBusquedaAvanzadaUsuarios("#search-advanced-toggle-group", "#search-in-students-input", "#filter-in-users-group");
 
     } catch (e) {
         console.log('Error actualizando', e);
