@@ -76,14 +76,6 @@ input[type=range]::-ms-track {
   height: 3px;
 }
 
-input[type=range]::-ms-fill-lower {
-  background-color: HotPink
-}
-
-input[type=range]::-ms-fill-upper {
-  background-color: black;
-} 
-
 .modal-content{
     background-color: rgba(0, 74, 148, 0.9) !important;
     border: 3px solid #003264 !important;
