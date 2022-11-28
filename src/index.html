@@ -17,7 +17,7 @@
 
 <body>
     <!-- Navbar principal -->
-    <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgb(47, 137, 255);">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html" style="color: white;">CursoManager</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,15 +45,15 @@
     <div class="container-fluid mt-5 pt-2">
         <div class="row mt-3">
             <div class="col-md-6">
-                <ul class="nav nav-tabs " id="myTab" role="tablist">
-                    <li class="nav-item " role="presentation">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link active " id="usuarios-tab" data-bs-toggle="tab" data-bs-target="#usuarios-tab-pane" type="button" role="tab" aria-controls="usuarios-tab-pane" aria-selected="true">👥 Usuarios</button>
                     </li>
                     <li class="nav-item " role="presentation">
                         <button class="nav-link" id="cursos-tab" data-bs-toggle="tab" data-bs-target="#cursos-tab-pane" type="button" role="tab" aria-controls="cursos-tab-pane" aria-selected="false">🎓 Cursos</button>
                     </li>
                 </ul>
-                <div class="tab-content overflow-scroll vh-100 " style="background-color: lightblue;" id="myTabContent">
+                <div class="tab-content overflow-scroll vh-100 rounded" style="background-color: rgba(10, 83, 190, 0.7);" id="myTabContent">
                     <div class="tab-pane fade show active " id="usuarios-tab-pane" role="tabpanel" aria-labelledby="usuarios-tab" tabindex="0">
                         <div id="users">
 
@@ -66,8 +66,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mt-5 parteDrch" style="border-radius: 5px; border-style: solid;">
-                <div id="details" class="overflow-scroll vh-100">
+            <div class="col-md-6 mt-5 parteDrch overflow-scroll vh-100 rounded" style="background-color: rgba(10, 83, 190, 0.7);">
+                <div id="details">
 
                 </div>
             </div>
@@ -79,7 +79,7 @@
         siempre usamos el mismo, y no se muestra hasta que hace falta
     -->
     <div class="modal fade " id="cmModal" tabindex="-1" aria-labelledby="cmEditLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="cmEditLabel">

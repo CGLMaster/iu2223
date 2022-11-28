@@ -26,15 +26,15 @@ const roleClasses = {
 }
 
 const areaClasses = {
-    [Cm.CourseArea.OFFICE]: "badge text-bg-warning",
+    [Cm.CourseArea.OFFICE]: "badge text-bg-secondary",
     [Cm.CourseArea.INTERNET]: "badge text-bg-info",
     [Cm.CourseArea.IT]: "badge text-bg-dark"
 }
 
 const levelClasses = {
-    [Cm.CourseLevel.INITIATION]: "badge text-bg-primary opacity-50",
-    [Cm.CourseLevel.GENERALIST]: "badge text-bg-primary opacity-75",
-    [Cm.CourseLevel.SPECIALIST]: "badge text-bg-primary opacity-100"
+    [Cm.CourseLevel.INITIATION]: "badge opacity-50",
+    [Cm.CourseLevel.GENERALIST]: "badge opacity-75",
+    [Cm.CourseLevel.SPECIALIST]: "badge opacity-100"
 }
 
 
@@ -71,15 +71,15 @@ export function createUserTable(users) {
             class="add-user btn ">➕</button>`
 
     return `
-    <h4 class="mt-3 text-center">Usuarios</h4>
-    <hr>
-    <div class="row">
+    <h4 class="mt-3 text-center" style="font-size:40px; color:white;">Usuarios</h4>
+    <hr style="color: white;">
+    <div class="row m-2">
         <div class="col md-auto input-group">
             <input id="search-in-users-input" type="search" class="form-control" placeholder="Filtrar" />
-            <span class="input-group-text bg-dark opacity-75" id="search-in-users-button">🔍</span>
+            <span class="input-group-text bg-primary bg-gradient opacity-75" id="search-in-users-button">🔍</span>
         </div>
-        <div class="col">
-            <button id="search-advanced-toggle" title="Búsqueda avanzada" class="btn text-bg-primary "><i class="bi bi-funnel-fill"></i></button>
+        <div class="col ms-2">
+            <button id="search-advanced-toggle" title="Búsqueda avanzada" class="btn btn-primary"><i class="bi bi-funnel-fill"></i></button>
         </div>
         <div class="col text-end">${botonNuevoUsuario}</div>
     </div>
@@ -89,7 +89,7 @@ export function createUserTable(users) {
         <input type="search" name="dni" class="col-md-4 m-1 form-control form-control-sm" id="dni" placeholder="DNI o fragmento">
         <input type="search" name="email" class="col-md-6 m-1 form-control form-control-sm" id="email" placeholder="correo o fragmento">
         <select name="role" id="role" class="col-md-6 m-1 form-select form-select-sm">
-            <option value="" selected>Ninguna role seleccionado</option>
+            <option value="" selected>Ninguna rol seleccionado</option>
             <option value="admin">admin</option>
             <option value="alumno">alumno</option>
             <option value="profesor">profesor</option>
@@ -99,7 +99,7 @@ export function createUserTable(users) {
         </div>    
     </form>
 
-    <table class="table">
+    <table class="table table-striped">
     <tr>
         <th>Nombre</th>
         <th>Rol</th>
@@ -143,8 +143,8 @@ function courseRow(course, editions, results) {
     return `
     <tr data-id="${course.id}" class="course-table-row">
         <td>${course.name}</td>
-        <td><span class=" ${areaClasses[course.area]}">${course.area}</span></td>
-        <td><span class="${levelClasses[course.level]}">${course.level}</span></td>
+        <td><span class=" ${areaClasses[course.area]}" style="color: white; background-color: #38811b;">${course.area}</span></td>
+        <td><span class="${levelClasses[course.level]}" style="color: white; background-color: #38811b;">${course.level}</span></td>
         <td>${ratings.join(' ')} 
             <button data-year="${year}" title="Crea una edición ${year} para el curso ${course.name}" 
                 class="add-edition btn btn-sm" 
@@ -171,12 +171,12 @@ export function createCoursesTable(courses) {
             class="add-course btn">➕</button>`
 
     return `
-    <h4 class="mt-3 text-center">Cursos</h4>
-    <hr>
-    <div class="row">
+    <h4 class="mt-3 text-center"  style="font-size:40px; color:white;">Cursos</h4>
+    <hr style="color: white;">
+    <div class="row m-2">
         <div class="col md-auto input-group">
             <input id="search-in-courses-input" type="search" class="form-control" placeholder="Filtrar" />
-            <span class="input-group-text bg-dark opacity-75" id="search-in-users-button">🔍</span>
+            <span class="input-group-text bg-primary bg-gradient opacity-75" id="search-in-users-button">🔍</span>
         </div>
         <div class="col">
             <button id="search-advanced-toggle-course" title="Búsqueda avanzada" class="btn text-bg-primary"><i class="bi bi-funnel-fill"></i></button>
@@ -234,8 +234,8 @@ export function createCoursesTable(courses) {
             <option value="1991">1991</option>
         </select>
         <div>
-            <input type="range" id="valoration" name="valoration" list="mydata" min="0" max="5" step="0.5"/>
-            <label for="temp">Valoración ⭐</label>
+            <input type="range" id="valoration" name="valoration" list="mydata" min="0" max="5" step="0.5" style="background-color: transparent !important;"/>
+            <label for="temp" style="color: white;">Valoración ⭐</label>
             <datalist id="mydata">
             <option value="0"></option>
             <option value="1"></option>
@@ -250,7 +250,7 @@ export function createCoursesTable(courses) {
         </div>
     </form>
 
-    <table class="table">
+    <table class="table table-striped">
     <tr>
         <th>Nombre</th>
         <th>Área</th>
@@ -312,19 +312,19 @@ export function createDetailsForEdition(edition) {
             class="add-${tipo}-to-edition btn bg-success">➕</button>`
 
     return `
-    <div class="row">
-        <div class="col md-auto"><h4 class="md-auto"><i>${edition.name}</i></h4></div>
+    <div class="row mt-2 me-2 mt-4">
+        <div class="col md-auto"><h4 class="md-auto" style="color: white;"><i>${edition.name}</i></h4></div>
         <div class="col text-end">${botonBorrado}</div>
     </div>
-    <h5 class="mt-3">Profesores</h5>
-    <div class="row">
+    <h5 class="mt-3" style="color: white;">Profesores</h5>
+    <div class="row me-2">
         <div class="col md-auto input-group">
             <input id="search-in-teachers-input" type="search" class="form-control" placeholder="Filtrar" />
-            <span class="input-group-text bg-dark opacity-75">🔍</span>
+            <span class="input-group-text bg-primary bg-gradient opacity-75">🔍</span>
         </div>
         <div class="col text-end">${botonMatricula("profesor")}</div>
     </div>
-    <table class="table w-100 ml-4">
+    <table class="table table-striped w-100 ml-4">
     <tr>
         <th>Nombre</th>
         <th>Correo</th>
@@ -334,11 +334,11 @@ export function createDetailsForEdition(edition) {
     ${filasProfesor}
     </table>
 
-    <h5 class="mt-3">Alumnos</h5>
-    <div class="row">
+    <h5 class="mt-3" style="color: white;">Alumnos</h5>
+    <div class="row mt-2 me-2 mb-2">
         <div class="col md-auto input-group">
             <input id="search-in-students-input" type="search" class="form-control" placeholder="Filtrar" />
-            <span class="input-group-text bg-dark opacity-75">🔍</span>
+            <span class="input-group-text bg-primary bg-gradient opacity-75">🔍</span>
         </div>
         <div class="col">
             <button id="search-advanced-toggle-group" title="Búsqueda avanzada" class="btn text-bg-primary"><i class="bi bi-funnel-fill"></i></button>
@@ -386,7 +386,7 @@ export function createDetailsForEdition(edition) {
             </div>    
         </form>
 
-    <table class="table w-100 ml-4">
+    <table class="table table-striped w-100 ml-4">
     <tr>
         <th>Nombre</th>
         <th>Correo</th>
@@ -449,16 +449,16 @@ export function createDetailsForUser(user) {
 
     return `
     <div class="row">
-        <div class="col md-auto"><h4 class="md-auto"><i>${user.name}</i></h4></div>
+        <div class="col md-auto mt-3" style="color: white;"><h4 class="md-auto"><i>${user.name}</i></h4></div>
     </div>
-    <h5 class="mt-3">Ediciones donde participa</h5>
-    <div class="row">
+    <h5 class="mt-3" style="color: white;">Ediciones donde participa</h5>
+    <div class="row mt-2 mb-3">
         <div class="col md-auto input-group">
             <input id="search-in-user-editions-input" type="search" class="form-control" placeholder="Filtrar" />
-            <span class="input-group-text bg-dark opacity-75">🔍</span>
+            <span class="input-group-text bg-primary bg-gradient opacity-75">🔍</span>
         </div>
     </div>
-    <table class="table w-100">
+    <table class="table table-striped w-100">
     <tr>
         <th>Edición</th>
         <th>Valoración global</th>
@@ -502,20 +502,20 @@ export function prepareAddOrEditUserModal(prev) {
     return `
     <form class="row g-3">
             <div class="col-md-12">
-                <input type="text" class="form-control" name="name" placeholder="Nombre" 
+                <input type="text" class="form-control m-1" name="name" placeholder="Nombre" 
                 ${prev?.name ? 'value="'+prev.name+'"' : ''} required>
             </div>
 
             <div class="col-md-8">
-                <input type="email" class="form-control" name="email" placeholder="email" 
+                <input type="email" class="form-control m-1" name="email" placeholder="email" 
                 ${prev?.email ? 'value="'+prev.email+'"' : ''} required">
             </div>
             <div class="col-md-4">
-                <input type="text" class="form-control" name="dni" placeholder="DNI/NIE" 
+                <input type="text" class="form-control m-1" name="dni" placeholder="DNI/NIE" 
                 ${prev?.dni ? 'value="'+prev.dni+'"' : ''} pattern="[0-9]{8}[A-Z]" required>
             </div>
             <div class="col-md-12">
-                <hr>
+                <hr style="color: white;">
             </div>
             <div class="col-md-4 text-center">
                 ${generateRadio(Cm.UserRole.STUDENT, roleClasses, prev?.role)}    
@@ -548,7 +548,7 @@ export function prepareAddOrEditCourseModal(prev) {
             </div>
 
             <div class="col-md-12">
-                <hr>
+                <hr style="color: white;">
             </div>
             <div class="col-md-6">
                 <select class="form-select" name="area" required> 

@@ -1879,14 +1879,28 @@ progress {
     border-top-width: 0;
 }
 
+.table-striped>tbody>tr:first-child>* {
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: white;
+    background-color: #06357a !important;
+}
+
 .table-striped>tbody>tr:nth-of-type(odd)>* {
     --bs-table-accent-bg: var(--bs-table-striped-bg);
-    color: var(--bs-table-striped-color);
+    color: white;
+    background-color: #134897;
+}
+
+.table-striped>tbody>tr:nth-of-type(even)>* {
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: white;
+    background-color: #2168d3;
 }
 
 .table-striped-columns> :not(caption)>tr> :nth-child(even) {
     --bs-table-accent-bg: var(--bs-table-striped-bg);
-    color: var(--bs-table-striped-color);
+    color: white;
+    background-color: #2168d3;
 }
 
 .table-active {
@@ -3127,16 +3141,17 @@ fieldset:disabled .btn {
 }
 
 .edition-link {
-    background-color: gray;
-    color: black;
+    background-color: #0097c5;
+    color: white;
+    border: none;
 }
 
 .edition-link:hover {
-    background-color: darkgray;
+    background-color: lightskyblue;
 }
 
 .set-user, .set-course, .set-result {
-    background-color: peru;
+    background-color: #3700ce;
 }
 
 .set-user:hover, .set-course:hover, .set-result:hover {
@@ -3152,11 +3167,12 @@ fieldset:disabled .btn {
 }
 
 .add-user, .add-edition, .add-course {
-    background-color: Green;
+    background-color: #ffb52c;
+    border: none;
 }
 
 .add-user:hover, .add-edition:hover, .add-course:hover {
-    background-color: MediumSeaGreen;
+    background-color: #cc9123;
 }
 
 .btn-primary {
@@ -3990,7 +4006,7 @@ fieldset:disabled .btn {
     padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
     font-size: var(--bs-nav-link-font-size);
     font-weight: var(--bs-nav-link-font-weight);
-    /* color: var(--bs-nav-link-color); */
+    color: white;
     text-decoration: none;
     transition: color 0.15s ease-in-out;
 }
@@ -4003,11 +4019,11 @@ fieldset:disabled .btn {
 
 .nav-link:hover,
 .nav-link:focus {
-    color: var(--bs-nav-link-hover-color);
+    color: white;
 }
 
 .nav-link.disabled {
-    color: var(--bs-nav-link-disabled-color);
+    color: white;
     pointer-events: none;
     cursor: default;
 }
@@ -4025,7 +4041,7 @@ fieldset:disabled .btn {
 
 .nav-tabs .nav-link {
     margin-bottom: calc(-1 * var(--bs-nav-tabs-border-width));
-    background: none;
+    background-color: rgb(10, 83, 190, 0.6);
     border: var(--bs-nav-tabs-border-width) solid transparent;
     border-top-left-radius: var(--bs-nav-tabs-border-radius);
     border-top-right-radius: var(--bs-nav-tabs-border-radius);
@@ -4035,6 +4051,7 @@ fieldset:disabled .btn {
 .nav-tabs .nav-link:focus {
     isolation: isolate;
     border-color: var(--bs-nav-tabs-link-hover-border-color);
+    background-color: #0a53be;
 }
 
 .nav-tabs .nav-link.disabled,
@@ -4046,8 +4063,8 @@ fieldset:disabled .btn {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-    color:  black;
-    background-color: lightblue;
+    color:  white;
+    background-color: #0a53be;
     border-color: var(--bs-nav-tabs-link-active-border-color);
 }
 
@@ -7370,7 +7387,7 @@ fieldset:disabled .btn {
 
 .text-bg-secondary {
     color: #fff !important;
-    background-color: RGBA(108, 117, 125, var(--bs-bg-opacity, 1)) !important;
+    background-color: #7a0c08 !important;
 }
 
 .text-bg-success {
@@ -7379,13 +7396,13 @@ fieldset:disabled .btn {
 }
 
 .text-bg-info {
-    color: #000 !important;
-    background-color: RGBA(13, 202, 240, var(--bs-bg-opacity, 1)) !important;
+    color: #fff !important;
+    background-color: #f84b2c !important;
 }
 
 .text-bg-warning {
-    color: #000 !important;
-    background-color: RGBA(255, 193, 7, var(--bs-bg-opacity, 1)) !important;
+    color: #fff !important;
+    background-color: #a77c08 !important;
 }
 
 .text-bg-danger {
@@ -7400,7 +7417,7 @@ fieldset:disabled .btn {
 
 .text-bg-dark {
     color: #fff !important;
-    background-color: RGBA(33, 37, 41, var(--bs-bg-opacity, 1)) !important;
+    background-color: #c4642c !important;
 }
 
 .link-primary {
@@ -8885,7 +8902,7 @@ fieldset:disabled .btn {
 
 .bg-success {
     --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+    background-color: #ffbb00 !important;
 }
 
 .bg-info {
